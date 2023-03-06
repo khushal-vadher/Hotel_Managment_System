@@ -14,8 +14,8 @@ namespace HotelManagmanetSystem.Models
         public string? Description { get; set; }
 
         [Required]
-        public int? MaximumGuests { get; set; }
+        public int MaximumGuests { get; set; }
 
-        public virtual RoomType RoomType { get; set; }
+        public ICollection<Booking>? Bookings { get; set; }
     }
 }

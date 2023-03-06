@@ -7,14 +7,15 @@ namespace HotelManagmanetSystem.Models
         [Key]
         public int CustId { get; set; }
         [Required]
-        public string? CustomerName { get; set; }
+        public string CustomerName { get; set; }
         [Required]
-        public string? CustomerEmail { get; set; }
+        public string CustomerEmail { get; set; }
         [Required]
-        public string? CustomerAddress { get; set; }
+        public string CustomerAddress { get; set; }
         [Required]
-        public string? CustomerCity { get; set; }
+        public string CustomerCity { get; set; }
 
-        public  ICollection<Booking> Bookings { get; set; }
+        public ICollection<Booking>? bookings{ get; set; }
+        
     }
 }

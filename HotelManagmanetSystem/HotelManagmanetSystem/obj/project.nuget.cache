@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nLGn/xqmi5P7309itmjFrpIxUwi2PrDxwHZsvNd0kOuOPMlOjKoFGINnuYy3mAkm6Ihob2mzK0uOc7pyXTqQ/w==",
+  "dgSpecHash": "A0iXhQeTwQFqgTuzviLdzm8DheE/yS6ySTO0AidWf4zyCZ2Pw2MRupXFasjiXFuoMaYg6LiPBVeFpvnDgvulUg==",
   "success": true,
-  "projectFilePath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
+  "projectFilePath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

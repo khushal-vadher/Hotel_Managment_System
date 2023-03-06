@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj": {}
+    "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj": {}
   },
   "projects": {
-    "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj": {
+    "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
+        "projectUniqueName": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
         "projectName": "HotelManagmanetSystem",
-        "projectPath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
+        "projectPath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\HotelManagmanetSystem.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Proj\\HotelManagmanetSystem\\HotelManagmanetSystem\\obj\\",
+        "outputPath": "E:\\sem6\\SEM 6 KD LAB\\WSD\\Hotel_Managment\\HotelManagmanetSystem\\HotelManagmanetSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

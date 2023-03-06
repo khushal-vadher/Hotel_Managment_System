@@ -8,19 +8,18 @@ namespace HotelManagmanetSystem.Models
         public int BookId { get; set; }
      
         [Required]
-        public Decimal? Price { get; set; }
+        public Decimal Price { get; set; }
         [Required]
-        public DateTime? CheackIn { get; set; }
+        public DateTime CheackIn { get; set; }
         [Required]
-        public DateTime? CheackOut { get; set; }
+        public DateTime CheackOut { get; set; }
 
-        [Required]
-        public virtual Customer? customer { get; set; }
-
-        [Required]
-        public virtual Room? room { get; set; }
+        public Room? Room { get; set; } //room number kind of thing
 
 
+        
+
+       
 
     }
 }

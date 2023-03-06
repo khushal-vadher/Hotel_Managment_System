@@ -7,6 +7,8 @@ namespace HotelManagmanetSystem.Models
         [Key]
         public int RoomTypeId { get; set; }
         [Required]
-        public string? Type { get; set; }
+        public string Type { get; set; }
+
+        public ICollection<Room>? rooms { get; set; }
     }
 }
