@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace HotelManagmanetSystem.Models
 {
@@ -14,7 +15,17 @@ namespace HotelManagmanetSystem.Models
         [Required]
         public DateTime CheackOut { get; set; }
 
-        public Room? Room { get; set; } //room number kind of thing
+        public int RoomId { get; set; }
+
+        [JsonIgnore]
+
+        public  Room? Room { get; set; } //room number kind of thing
+
+        public int CustomerId { get; set; }
+
+        [JsonIgnore]
+
+        public  Customer? Customer { get; set; }
 
 
         

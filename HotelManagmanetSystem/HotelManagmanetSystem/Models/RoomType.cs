@@ -9,6 +9,5 @@ namespace HotelManagmanetSystem.Models
         [Required]
         public string Type { get; set; }
 
-        public ICollection<Room>? rooms { get; set; }
     }
 }

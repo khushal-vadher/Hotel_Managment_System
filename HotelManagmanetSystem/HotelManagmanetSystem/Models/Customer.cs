@@ -15,7 +15,7 @@ namespace HotelManagmanetSystem.Models
         [Required]
         public string CustomerCity { get; set; }
 
-        public ICollection<Booking>? bookings{ get; set; }
+       
         
     }
 }

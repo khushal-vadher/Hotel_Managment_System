@@ -36,7 +36,7 @@ namespace HotelManagmanetSystem.Migrations
                     b.Property<DateTime>("CheackOut")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerCustId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -47,7 +47,7 @@ namespace HotelManagmanetSystem.Migrations
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("CustomerCustId");
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("RoomId");
 
@@ -101,7 +101,7 @@ namespace HotelManagmanetSystem.Migrations
                     b.Property<int>("MaximumGuests")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RoomTypeId")
+                    b.Property<int>("RoomTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("RoomId");
@@ -130,39 +130,32 @@ namespace HotelManagmanetSystem.Migrations
 
             modelBuilder.Entity("HotelManagmanetSystem.Models.Booking", b =>
                 {
-                    b.HasOne("HotelManagmanetSystem.Models.Customer", null)
-                        .WithMany("bookings")
-                        .HasForeignKey("CustomerCustId");
+                    b.HasOne("HotelManagmanetSystem.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HotelManagmanetSystem.Models.Room", "Room")
-                        .WithMany("Bookings")
+                        .WithMany()
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Customer");
 
                     b.Navigation("Room");
                 });
 
             modelBuilder.Entity("HotelManagmanetSystem.Models.Room", b =>
                 {
-                    b.HasOne("HotelManagmanetSystem.Models.RoomType", null)
-                        .WithMany("rooms")
-                        .HasForeignKey("RoomTypeId");
-                });
+                    b.HasOne("HotelManagmanetSystem.Models.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("HotelManagmanetSystem.Models.Customer", b =>
-                {
-                    b.Navigation("bookings");
-                });
-
-            modelBuilder.Entity("HotelManagmanetSystem.Models.Room", b =>
-                {
-                    b.Navigation("Bookings");
-                });
-
-            modelBuilder.Entity("HotelManagmanetSystem.Models.RoomType", b =>
-                {
-                    b.Navigation("rooms");
+                    b.Navigation("RoomType");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace HotelManagmanetSystem.Models
 {
@@ -16,6 +17,11 @@ namespace HotelManagmanetSystem.Models
         [Required]
         public int MaximumGuests { get; set; }
 
-        public ICollection<Booking>? Bookings { get; set; }
+        public int RoomTypeId { get; set; }
+
+        [JsonIgnore]
+
+        public  RoomType? RoomType { get; set; }
+
     }
 }

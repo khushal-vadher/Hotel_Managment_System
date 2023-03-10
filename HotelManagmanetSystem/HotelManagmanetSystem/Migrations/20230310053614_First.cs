@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HotelManagmanetSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class F : Migration
+    public partial class First : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,7 +49,7 @@ namespace HotelManagmanetSystem.Migrations
                     Available = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MaximumGuests = table.Column<int>(type: "int", nullable: false),
-                    RoomTypeId = table.Column<int>(type: "int", nullable: true)
+                    RoomTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,7 +58,8 @@ namespace HotelManagmanetSystem.Migrations
                         name: "FK_Room_RoomType_RoomTypeId",
                         column: x => x.RoomTypeId,
                         principalTable: "RoomType",
-                        principalColumn: "RoomTypeId");
+                        principalColumn: "RoomTypeId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,16 +72,17 @@ namespace HotelManagmanetSystem.Migrations
                     CheackIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CheackOut = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RoomId = table.Column<int>(type: "int", nullable: false),
-                    CustomerCustId = table.Column<int>(type: "int", nullable: true)
+                    CustomerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Booking", x => x.BookId);
                     table.ForeignKey(
-                        name: "FK_Booking_Customer_CustomerCustId",
-                        column: x => x.CustomerCustId,
+                        name: "FK_Booking_Customer_CustomerId",
+                        column: x => x.CustomerId,
                         principalTable: "Customer",
-                        principalColumn: "CustId");
+                        principalColumn: "CustId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Booking_Room_RoomId",
                         column: x => x.RoomId,
@@ -90,9 +92,9 @@ namespace HotelManagmanetSystem.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Booking_CustomerCustId",
+                name: "IX_Booking_CustomerId",
                 table: "Booking",
-                column: "CustomerCustId");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Booking_RoomId",
