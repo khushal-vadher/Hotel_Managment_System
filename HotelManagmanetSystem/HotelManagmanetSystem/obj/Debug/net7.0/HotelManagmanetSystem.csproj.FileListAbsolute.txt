@@ -550,3 +550,5 @@ E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSy
 E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSystem\obj\Debug\net7.0\HotelManagmanetSystem.pdb
 E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSystem\obj\Debug\net7.0\HotelManagmanetSystem.genruntimeconfig.cache
 E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSystem\obj\Debug\net7.0\ref\HotelManagmanetSystem.dll
+E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSystem\obj\Debug\net7.0\HotelManagmanetSystem.RazorAssemblyInfo.cache
+E:\sem6\SEM 6 KD LAB\WSD\Hotel_Managment\HotelManagmanetSystem\HotelManagmanetSystem\obj\Debug\net7.0\HotelManagmanetSystem.RazorAssemblyInfo.cs

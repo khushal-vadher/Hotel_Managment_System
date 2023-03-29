@@ -3,9 +3,20 @@ import Banner from '../Banner/Banner.js';
 import Contactus from '../Contact/Contactus.js';
 import Footer from '../Footer/Footer.js';
 import Form from '../Form/Form.js';
-import {Link} from 'react';
+import { Link } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
+
+    const nav = useNavigate("");
+    const CustomerEmail = localStorage.getItem("email")
+    const handleLogout = () =>{
+        localStorage.removeItem("email")
+        localStorage.removeItem("ID")
+        nav("/")
+    }
+    
     return (
 
         <>
@@ -22,21 +33,21 @@ function Header() {
                             </div>
                             <nav className="tm-nav">
                                 <ul>
-                                    <li><a href="index.html" className="active">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="tours.html">Our Tours</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                   
+                                    
+                                    <li><a href='/'>Home</a></li>
+                                    <li><NavLink to="/update">Update</NavLink></li>
+                                    
+                                    {!CustomerEmail && <li><NavLink to="/login" >Login</NavLink></li>}
+                                    {CustomerEmail && <li><NavLink  onClick={handleLogout} >Logout</NavLink></li>}
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <Banner />
-            <Form />
-            <Contactus />
-            <Footer />
-            
+
+
         </>
 
     );

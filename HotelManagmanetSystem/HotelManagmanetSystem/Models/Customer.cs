@@ -14,6 +14,8 @@ namespace HotelManagmanetSystem.Models
         public string CustomerAddress { get; set; }
         [Required]
         public string CustomerCity { get; set; }
+        [Required]
+        public string Password { get; set; }    
 
        
         

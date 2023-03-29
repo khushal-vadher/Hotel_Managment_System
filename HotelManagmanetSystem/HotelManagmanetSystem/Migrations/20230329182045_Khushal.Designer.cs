@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelManagmanetSystem.Migrations
 {
     [DbContext(typeof(HotelManagmanetSystemContext))]
-    [Migration("20230310053614_First")]
-    partial class First
+    [Migration("20230329182045_Khushal")]
+    partial class Khushal
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "7.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -42,11 +42,15 @@ namespace HotelManagmanetSystem.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
+
+                    b.Property<int>("guests")
+                        .HasColumnType("int");
+
+                    b.Property<string>("roomType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BookId");
 
@@ -81,6 +85,10 @@ namespace HotelManagmanetSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("CustId");
 
                     b.ToTable("Customer");
@@ -97,19 +105,7 @@ namespace HotelManagmanetSystem.Migrations
                     b.Property<bool>("Available")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MaximumGuests")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("RoomId");
-
-                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("Room");
                 });
@@ -148,17 +144,6 @@ namespace HotelManagmanetSystem.Migrations
                     b.Navigation("Customer");
 
                     b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("HotelManagmanetSystem.Models.Room", b =>
-                {
-                    b.HasOne("HotelManagmanetSystem.Models.RoomType", "RoomType")
-                        .WithMany()
-                        .HasForeignKey("RoomTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RoomType");
                 });
 #pragma warning restore 612, 618
         }

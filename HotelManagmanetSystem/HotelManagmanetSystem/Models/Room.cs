@@ -11,17 +11,7 @@ namespace HotelManagmanetSystem.Models
         [Required]
         public bool Available { get; set; }
 
-        [Required]
-        public string? Description { get; set; }
 
-        [Required]
-        public int MaximumGuests { get; set; }
-
-        public int RoomTypeId { get; set; }
-
-        [JsonIgnore]
-
-        public  RoomType? RoomType { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ namespace HotelManagmanetSystem.Data
 {
     public class HotelManagmanetSystemContext : DbContext
     {
-        public HotelManagmanetSystemContext (DbContextOptions<HotelManagmanetSystemContext> options)
+        public HotelManagmanetSystemContext(DbContextOptions<HotelManagmanetSystemContext> options)
             : base(options)
         {
             Database.EnsureCreated();
@@ -22,5 +22,7 @@ namespace HotelManagmanetSystem.Data
         public DbSet<HotelManagmanetSystem.Models.Room> Room { get; set; } = default!;
 
         public DbSet<HotelManagmanetSystem.Models.RoomType> RoomType { get; set; } = default!;
+
+        
     }
 }

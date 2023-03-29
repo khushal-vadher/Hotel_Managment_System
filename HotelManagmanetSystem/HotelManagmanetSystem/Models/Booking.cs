@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NuGet.Protocol;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace HotelManagmanetSystem.Models
@@ -8,8 +9,6 @@ namespace HotelManagmanetSystem.Models
         [Key]
         public int BookId { get; set; }
      
-        [Required]
-        public Decimal Price { get; set; }
         [Required]
         public DateTime CheackIn { get; set; }
         [Required]
@@ -26,9 +25,10 @@ namespace HotelManagmanetSystem.Models
         [JsonIgnore]
 
         public  Customer? Customer { get; set; }
-
-
-        
+        [Required]
+        public int guests { get; set; }
+        [Required]
+        public string roomType { get; set; }
 
        
 

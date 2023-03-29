@@ -1,6 +1,6 @@
 import React from 'react';
 
-function About(props) {
+function About() {
     return (
         <div>
             <section className="container tm-home-section-1" id="more">
