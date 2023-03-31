@@ -1,96 +1,55 @@
 
-body {
-    color: #566787;
-    background: #f7f5f2;
-    font-family: 'Roboto', sans-serif;
-}
-.table-responsive {
-    margin: 30px 0;
-}
 .table-wrapper {
-  	min-width: 1000px;
+    width: 700px;
+    margin: 30px auto;
     background: #fff;
-    padding: 20px 25px;
-    border-radius: 3px;
+    padding: 20px;	
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
-    color: #fff;
-    background: #40b2cd;		
-    padding: 16px 25px;
-    margin: -20px -25px 10px;
-    border-radius: 3px 3px 0 0;
+    padding-bottom: 10px;
+    margin: 0 0 10px;
 }
 .table-title h2 {
-    margin: 5px 0 0;
-    font-size: 24px;
+    margin: 6px 0 0;
+    font-size: 22px;
 }
-.search-box {
-    position: relative;
+.table-title .add-new {
     float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+    background-color: black;
 }
-.search-box .input-group {
-    min-width: 300px;
-    position: absolute;
-    right: 0;
-}
-.search-box .input-group-addon, .search-box input {
-    border-color: #ddd;
-    border-radius: 0;
-}	
-.search-box input {
-    height: 34px;
-    padding-right: 35px;
-    background: #f4fcfd;
-    border: none;
-    border-radius: 2px !important;
-}
-.search-box input:focus {
-    background: #fff;
-}
-.search-box input::placeholder {
-    font-style: italic;
-}
-.search-box .input-group-addon {
-    min-width: 35px;
-    border: none;
-    background: transparent;
-    position: absolute;
-    right: 0;
-    z-index: 9;
-    padding: 6px 0;
-}
-.search-box i {
-    color: #a0a5b1;
-    font-size: 19px;
-    position: relative;
-    top: 2px;
+.table-title .add-new i {
+    margin-right: 4px;
 }
 table.table {
     table-layout: fixed;
-    margin-top: 15px;
 }
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
 table.table th i {
-    font-size: 13px;
+    font-size: 16px;
     margin: 0 5px;
     cursor: pointer;
 }
-table.table th:first-child {
-    width: 60px;
-}
 table.table th:last-child {
-    width: 120px;
+    width: 100px;
 }
 table.table td a {
-    color: #a0a5b1;
+    cursor: pointer;
     display: inline-block;
     margin: 0 5px;
-}
-table.table td a.view {
-    color: #03A9F4;
+    min-width: 24px;
+}    
+table.table td a.add {
+    color: #27C46B;
 }
 table.table td a.edit {
     color: #FFC107;
@@ -100,6 +59,22 @@ table.table td a.delete {
 }
 table.table td i {
     font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
 }    
-
-    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add {
+    display: none;
+}

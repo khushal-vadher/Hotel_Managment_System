@@ -1,24 +1,39 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import Header from '../Header/Header';
 import './booking.css';
 function Booking() {
 
     const [data, setData] = useState([]);
+    const [reducer,setReducer] = useReducer(x=>x+1,0)
 
     useEffect(() => {
         const getBooking = async () => {
             try {
                 await axios.get("http://localhost:24813/api/Bookings").then((res) => { setData(res.data) })
+                // await axios.get(`http://localhost:24813/api/Customers/${}`)
             } catch (err) {
                 console.log(err)
             }
         }
         getBooking();
 
-    }, [])
+    }, [reducer])
     console.log("Booking")
     console.log(data)
+
+    const handleDelete =async (e,bookId,roomId)=>{
+        e.preventDefault()
+        try{
+            await axios.delete(`http://localhost:24813/api/Bookings/${bookId}`)
+            await axios.put(`http://localhost:24813/api/Rooms/${roomId}`,{
+                available : true
+            })
+            setReducer()
+        }catch(err){
+            console.log(err)
+        }
+    }
 
     return (
         <div>
@@ -31,14 +46,14 @@ function Booking() {
                                 <div className="col-sm-6">
                                     <h2>All Room <b>Booking</b></h2>
                                 </div>
-                                <div className="col-sm-6">
+                                {/* <div className="col-sm-6">
                                     <div className="search-box">
                                         <div className="input-group">
                                             <input type="text" id="search" className="form-control" placeholder="Search by Name" />
                                             <span className="input-group-addon"><i className="material-icons">&#xE8B6;</i></span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <table className="table table-striped">
@@ -46,8 +61,7 @@ function Booking() {
                                 <tr>
                                     <th>#</th>
                                     <th>Booking ID</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
+                                    <th>Customer ID</th>
                                     <th>Cheack In </th>
                                     <th>Cheack Out</th>
                                     <th>No of Guests</th>
@@ -61,13 +75,14 @@ function Booking() {
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>{obj.bookId}</td>
-                                        <td>USA</td>
-                                        <td>USA</td>
-                                        <td>{obj.cheackIn}</td>
-                                        <td>{obj.cheackOut}</td>
+                                        <td>{obj.customerId}</td>
+                                        <td>{obj.cheackIn.slice(0,10)}</td>
+                                        <td>{obj.cheackOut.slice(0,10)}</td>
                                         <td>{obj.guests}</td>
                                         <td>{obj.roomType}</td>
                                         <td>{obj.roomId}</td>
+                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" onClick={(e)=>{handleDelete(e,obj.bookId,obj.roomId)}}>&#xE872;</i></a>
+
 
                                     </tr>
                                 ))

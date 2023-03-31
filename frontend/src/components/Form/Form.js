@@ -67,6 +67,8 @@ function Form() {
             const response = await axios.put(`http://localhost:24813/api/Rooms/${roomId}`,obj)
             setBooking([])
             setSubmit()
+            alert("Your room has been booked succesfully!")
+            nav("/")
         }catch(err){
             console.log(err)
         }
