@@ -15,7 +15,7 @@ function Contactus(props) {
                     </div>
                     <div className="row">
                         
-                        <form action="#" method="post" className="tm-contact-form">
+                        <form action="/"  className="tm-contact-form">
                             <div className="col-lg-6 col-md-6">
                                 <div>
                                     <img src={contact} />

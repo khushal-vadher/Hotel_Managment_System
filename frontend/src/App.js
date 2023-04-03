@@ -13,6 +13,7 @@ import Booking from "./components/Booking/Booking.js";
 import Room from "./components/Room/Room.js";
 import Roomtype from "./components/RoomType/Roomtype.js";
 import Customer from "./components/Customer/Customer.js";
+import PNF from "./components/PNF/PNF.js";
 function App() {
   const CustomerEmail = localStorage.getItem("email")
   var isAdmin = localStorage.getItem("ID");
@@ -32,10 +33,17 @@ function App() {
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/update" exact element={<Update />} />
         <Route path="/admin"  exact element={<Adminhome />} />
-        {isAdmin &&<Route  path="/room" exact element={<Room />} />}
-        {isAdmin && <Route path="/roomtype" exact element={<Roomtype />} />}
-        {isAdmin && <Route path="/customer" exact element={<Customer />} />}
-        {isAdmin && <Route path="/booking" exact element={<Booking />} />}
+        {isAdmin==4 &&<Route  path="/room" exact element={<Room />} />}
+        {isAdmin==4 && <Route path="/roomtype" exact element={<Roomtype />} />}
+        {isAdmin==4 && <Route path="/customer" exact element={<Customer />} />}
+        {isAdmin==4 && <Route path="/booking" exact element={<Booking />} />}
+
+        {/* {isAdmin!==4 &&<Route  path="/room" exact element={<Navigate replace to="/pnf" />}/>} */}
+        {isAdmin!==4 && <Route path="/roomtype" exact element={<PNF />} />}
+        {isAdmin!==4 && <Route path="/customer" exact element={<PNF />} />}
+        {isAdmin!==4 && <Route path="/booking" exact element={<PNF />} />}
+        <Route path="/pnf" exact element={<PNF />} />
+        <Route path="*" exact element={<PNF />} />
 
         
       </Routes>

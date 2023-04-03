@@ -57,6 +57,9 @@ function Form() {
 
     const handleSubmit = async(eve) =>{
         eve.preventDefault()
+        if(!id){
+            alert("Please do login before Booking!")
+        }
         try{
             const res = await axios.post("http://localhost:24813/api/Bookings",booking)
             const roomId = booking.RoomId;
@@ -88,7 +91,7 @@ function Form() {
 
                                         <div className="form-group">
                                             <div className='input-group date' id='datetimepicker1'>
-                                                <input type='date' className="form-control" placeholder="Check-in Date" onChange={handleChangeinput}  value={booking.CheackIn} name="CheackIn"/>
+                                                <input type='date' className="form-control" placeholder="Check-in Date" onChange={handleChangeinput}  value={booking.CheackIn} name="CheackIn" required />
                                                 <span className="input-group-addon">
                                                 </span>
                                             </div>
@@ -96,7 +99,7 @@ function Form() {
                                         {/* <input onChange={handleChange}  */}
                                         <div className="form-group">
                                             <div className='input-group date' id='datetimepicker2'>
-                                                <input type='date' className="form-control" placeholder="Check-out Date" onChange={handleChangeinput}  value={booking.CheackOut} name="CheackOut" />
+                                                <input type='date' className="form-control" placeholder="Check-out Date" onChange={handleChangeinput}  value={booking.CheackOut} name="CheackOut" required />
                                                 <span className="input-group-addon">
                                                 </span>
                                             </div>

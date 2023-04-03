@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
 import './room.css'
 function Room() {
@@ -10,7 +9,7 @@ function Room() {
     const [roomdelete, setRoomtypedelete] = useState([]);
     const [reducer,setReducer] = useReducer(x=>x+1,0)
     const [roomupdate, setRoomupdate] = useState({
-        available : true
+        available : Boolean
     })
 
     useEffect(() => {
@@ -33,7 +32,10 @@ function Room() {
         e.preventDefault()
 
         try {
-            await axios.post('http://localhost:24813/api/Rooms/').then((res) => { setRoom(res.data) })
+            await axios.post('http://localhost:24813/api/Rooms/',{
+                available : true
+            }).then((res) => { setRoom(res.data) })
+            setReducer()
         } catch (err) {
             console.log(err)
         }
@@ -43,10 +45,14 @@ function Room() {
     const onchangevalue = (e) => {
         e.preventDefault();
         setRoomupdate({ ...roomupdate, [e.target.name]: e.target.value });
+        console.log(roomupdate)
     }
     const handleUpdate = async (e) => {
         e.preventDefault();
         console.log(roomupdate)
+        if(roomupdate.available === "1"){
+            setRoomupdate({...roomupdate,[roomupdate.available] :1})
+        }
         try {
             await axios.put(`http://localhost:24813/api/Rooms/${roomupdate.roomId}`, roomupdate)
             setReducer()
@@ -71,24 +77,24 @@ function Room() {
             <Header />
 
 
-            <div class="container-xl">
-                <div class="table-responsive">
-                    <div class="table-wrapper">
-                        <div class="table-title">
-                            <div class="row">
-                                <div class="col-sm-6">
+            <div className="container-xl">
+                <div className="table-responsive">
+                    <div className="table-wrapper">
+                        <div className="table-title">
+                            <div className="row">
+                                <div className="col-sm-6">
                                     <h2>Manage <b>Rooms</b></h2>
                                 </div>
-                                <div class="col-sm-6">
-                                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                                <div className="col-sm-6">
+                                    <a onClick={(e)=>{handleAdd(e)}} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Room</span></a>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover">
+                        <table className="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>
-                                        <span class="custom-checkbox">
+                                        <span className="custom-checkbox">
                                             <input type="checkbox" id="selectAll" />
                                             <label for="selectAll"></label>
                                         </span>
@@ -106,8 +112,8 @@ function Room() {
                                         <td>{obj.roomId}</td>
                                         <td>{JSON.stringify(obj.available)}</td>
                                         <td>
-                                            <a href="#editEmployeeModal" onClick={() => { setRoomupdate(obj) }} class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" onClick={()=>{setRoomtypedelete(obj)}}><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                            <a href="#editEmployeeModal" onClick={() => { setRoomupdate(obj) }} className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal" onClick={()=>{setRoomtypedelete(obj)}}><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                         </td>
 
 
@@ -121,45 +127,45 @@ function Room() {
             </div>
            
             {/* <!-- Edit Modal HTML --> */}
-            <div id="editEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+            <div id="editEmployeeModal" className="modal fade">
+                <div className="modal-dialog">
+                    <div className="modal-content">
                         <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Edit Room</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Edit Room</h4>
+                                <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
+                            <div className="modal-body">
+                                <div className="form-group">
                                     <label>Name</label>
-                                    <input type="text"  class="form-control" defaultValue={JSON.stringify(roomupdate.available)} onChange={(e) => onchangevalue(e)} name="available" required />
+                                    <input type="bo"   className="form-control" defaultValue={JSON.stringify(roomupdate.available)} onChange={(e) => onchangevalue(e)} name="available" required />
                                 </div>
 
                             </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                                <input type="submit" class="btn btn-info" value="Save" onClick={handleUpdate}/>
+                            <div className="modal-footer">
+                                <input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel" />
+                                <input type="submit" className="btn btn-info" value="Save" onClick={handleUpdate}/>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             {/* <!-- Delete Modal HTML --> */}
-            <div id="deleteEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+            <div id="deleteEmployeeModal" className="modal fade">
+                <div className="modal-dialog">
+                    <div className="modal-content">
                         <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Delete Room</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Delete Room</h4>
+                                <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <p>Are you sure you want to delete these Records?</p>
-                                <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                <p className="text-warning"><small>This action cannot be undone.</small></p>
                             </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                                <input type="submit" class="btn btn-danger" value="Delete" onClick={(e)=>{handleDelete(e)}} />
+                            <div className="modal-footer">
+                                <input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel" />
+                                <input type="submit" className="btn btn-danger" value="Delete" onClick={(e)=>{handleDelete(e)}} />
                             </div>
                         </form>
                     </div>

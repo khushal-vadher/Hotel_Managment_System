@@ -16,6 +16,9 @@ const Login = () => {
 	};
 
 	const handleSubmit = async (e) => {
+		// if(data.CustomerEmail ==="" || data.Password == ""){
+		// 	alert("Plase enter the email and password")
+		// }
 		if (data.CustomerEmail === "kd1510@gmail.com" && data.Password === "kd1") {
 			localStorage.setItem("email",data.CustomerEmail)
 			localStorage.setItem("ID",4)

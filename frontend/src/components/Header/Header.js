@@ -1,15 +1,10 @@
 import React from 'react';
-import Banner from '../Banner/Banner.js';
-import Contactus from '../Contact/Contactus.js';
-import Footer from '../Footer/Footer.js';
-import Form from '../Form/Form.js';
-import { Link } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 function Header() {
 
-    const nav = useNavigate("");
+    const nav = useNavigate();
     const CustomerEmail = localStorage.getItem("email")
     var isAdmin = false
     if(CustomerEmail === "kd1510@gmail.com"){
